@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "SportPlay",
+    "name": "Sport Play",
     "slug": "SportPlay",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1f1d2b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
