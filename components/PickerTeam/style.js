@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     fontFamily: 'RubikMedium',
-    fontSize: 15,
+    fontSize: 17,
     width: '100%'
   },
   placeholderDark: {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontFamily: 'RubikMedium',
-    fontSize: 15,
+    fontSize: 17,
   },
   noData: {
     display: 'flex',

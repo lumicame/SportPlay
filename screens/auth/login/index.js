@@ -6,6 +6,47 @@ import { UserContext } from '../../../contexts/UserManager'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
 import { LinearGradient } from 'expo-linear-gradient';
+import { logIn } from '../../../api/user'
+
+
+const logInFunc = async (userData, setLoading, setUser) => {
+  setLoading(true)
+  for (const e of Object.values(userData)) {
+    if (e.trim() === '') {
+      Alert.alert('',
+        'Faltan campos por llenar',
+        [
+          { text: 'Entendido' }
+        ])
+      setLoading(false)
+      return
+    }
+  }
+  const res = await logIn(userData)
+  if (res.status) {
+    //setLoading(false)
+    //return console.log(res.data.token)
+    await AsyncStorage.setItem('@jwt', res.data.token)
+    setUser(res.data.user)
+    //setTimeout(() => navigation.navigate('Home'), 1000);
+    return
+  } else {
+    if (res.error?.response?.data?.message) {
+      Alert.alert('',
+        res.error?.response?.data?.message,
+        [
+          { text: 'Volver' }
+        ])
+    } else {
+      Alert.alert('',
+        'Ocurrio un error',
+        [
+          { text: 'Volver' }
+        ])
+    }
+  }
+  setLoading(false)
+}
 
 export default function LogIn({ navigation }) {
   const [userData, setUserData] = useState({ email: '', password: '' })
@@ -50,20 +91,18 @@ export default function LogIn({ navigation }) {
        <TouchableOpacity style={{alignSelf:'flex-end',marginTop:10}}>
           <Text style={styles.middleText}>Olvide mi contraseña</Text>
         </TouchableOpacity>
-        <View style={styles.buttonContainer} >
         
-       <TouchableOpacity style={{width:"100%"}} onPress={() => {}}>
+       <TouchableOpacity style={{...styles.buttonContainer}} onPress={() => logInFunc(userData,setLoading,setUser)}>
        <LinearGradient
-        // Button Linear Gradient
         colors={['#fbb70e', '#dd53db','#3ba2e2']}
         start={{ x: 0, y: 1 }}
         end={{ x: 1, y: 1 }}
         style={styles.button}>
-            <Text style={styles.buttonText}>Registrar</Text>
+            <Text style={styles.buttonText}>Iniciar Sesión</Text>
             </LinearGradient>
-          </TouchableOpacity>
+        </TouchableOpacity>
           
-        </View>
+        
         <TouchableOpacity style={styles.footerTextContainer} onPress={() => navigation.navigate('SignUp')}>
           <Text style={styles.footerText1}>No tienes una cuenta?</Text>
           <Text style={styles.footerText2}>Creala aqui</Text>

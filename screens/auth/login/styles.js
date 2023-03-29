@@ -45,11 +45,13 @@ const styles = StyleSheet.create({
     shadowOpacity:1
   },
   buttonContainer: {
+    width:'100%',
     marginTop: 43,
     marginBottom: 25,
     alignItems: 'center'
   },
   button: {
+    width:'70%',
     padding: 18,
     borderRadius: 30,
     marginHorizontal:30

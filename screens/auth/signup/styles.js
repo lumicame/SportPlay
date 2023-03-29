@@ -5,7 +5,7 @@ const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.darkBg,
     minHeight: '100%',
     width: '100%',
     flexDirection: 'column'
@@ -23,21 +23,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   title: {
-    color: colors.greenBg,
+    color: colors.white,
     fontSize: 30,
-    fontFamily: 'ComfortaaMedium',
+    fontFamily: 'ComfortaaBold',
     textAlign: 'center',
-    letterSpacing: 4,
-    marginBottom: 45
-  },
-  textInputContainer: {
-    width: '80%',
-    alignItems: 'center',
-    marginBottom: 13,
-    borderBottomColor: colors.midBlack,
-    borderBottomWidth: 1,
-    borderRadius: 1,
-    marginHorizontal: '10%'
+    marginTop: 30
   },
   pickerTitle: {
     fontFamily: 'ComfortaaMedium',
@@ -49,28 +39,46 @@ const styles = StyleSheet.create({
     color: '#171717'
   },
   textInput: {
-    width: '100%',
+    backgroundColor:"#252837",
+    padding:30,
+    height:70,
+    marginVertical:10,
+    marginHorizontal:20,
+    borderRadius: 20,
     fontFamily: 'ComfortaaMedium',
     fontSize: 15,
-    paddingVertical: 12
+    color:"#FFFFFF",
+    paddingVertical: 12,
+    elevation:4,
+    shadowOpacity:1
+  },
+  textDate: {
+    justifyContent:'center',
+    backgroundColor:"#252837",
+    padding:30,
+    height:70,
+    marginVertical:10,
+    marginHorizontal:20,
+    borderRadius: 20,
+    paddingVertical: 12,
+    elevation:4,
+    shadowOpacity:1
   },
   buttonContainer: {
-    width: '100%',
     marginTop: 43,
     marginBottom: 100,
     alignItems: 'center'
   },
   button: {
-    backgroundColor: colors.orange,
     padding: 18,
-    width: '80%',
-    borderRadius: 30
+    borderRadius: 30,
+    marginHorizontal:70
   },
   buttonText: {
-    fontFamily: 'ComfortaaSemiBold',
+    fontFamily: 'ComfortaaBold',
     color: colors.white,
     textAlign: 'center',
-    fontSize: 15
+    fontSize: 15,
   },
   footerTextContainer: {
     flexDirection: 'row',
@@ -79,13 +87,13 @@ const styles = StyleSheet.create({
   },
   footerText1: {
     fontFamily: 'ComfortaaLight',
-    color: colors.black,
+    color: colors.white,
     fontSize: 15,
     marginRight: 5
   },
   footerText2: {
     fontFamily: 'ComfortaaSemiBold',
-    color: colors.black,
+    color:colors.yelow,
     fontSize: 15
   }
 })
